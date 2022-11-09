@@ -3,12 +3,14 @@ layout: compress
 ---
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "ru" }}">
-<meta charset="utf-8">
-
+<head>
+  <meta charset="utf-8">
   <!-- Измените название вашего приложения  -->
   <title>{{ page.title | default: site.title | default: "Черепаха: свободное рисование" }}</title>
   <!-- -->
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/css/robot.css" | relative_url }}">
   <script src="{{ "/assets/js/acorn_interpreter.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/blockly_compressed.js" | relative_url }}"></script>
