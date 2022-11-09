@@ -6,7 +6,7 @@ layout: compress
 <meta charset="utf-8">
 
   <!-- Измените название вашего приложения  -->
-  <title>Черепаха: свободное рисование</title>
+  <title>{{ page.title | default: site.title | default: "Черепаха: свободное рисование" }}</title>
   <!-- -->
 
   <link rel="stylesheet" href="{{ "/assets/css/robot.css" | relative_url }}">
