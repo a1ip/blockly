@@ -3,13 +3,38 @@ layout: compress
 ---
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "ru" }}">
+<meta charset="utf-8">
 
-  {%- include head.html -%}
+  <!-- Измените название вашего приложения  -->
+  <title>Черепаха: свободное рисование</title>
+  <!-- -->
 
-  <body>
+  <link rel="stylesheet" href="{{ "/assets/css/robot.css" | relative_url }}">
+  <script src="{{ "/assets/js/acorn_interpreter.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/blockly_compressed.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/blocks_compressed.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/javascript_compressed.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/python_compressed.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/php_compressed.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/lua_compressed.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/dart_compressed.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/ru.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/ace.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/dialogs.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/slider.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/trtblocks.js" | relative_url }}"></script>
 
-    {{ content }}
+  <!-- Добавьте ссылку на свой файл, который содержит ваш набор задач  -->
+  <script src="{{ "/assets/js/turtle_free.js" | relative_url }}"></script>
+  <!-- -->
 
-  </body>
+  <script src="{{ "/assets/js/turtle.js" | relative_url }}"></script>
+</head>
+<body>
+  {{ content }}
+<script>
+  initApplication();
+</script>
+</body>
 
 </html>
