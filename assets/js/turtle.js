@@ -1,3 +1,5 @@
+---
+---
 /**
  * @license
  * Copyright 2020 Константин Поляков
@@ -66,7 +68,7 @@ var robotColour;
 var sliderScale = 250;
 var animationDelay = 10;
 
-var turtleImageFile = './media/turtle.png';
+var turtleImageFile = '{{ "/assets/media/turtle.png" | relative_url }}';
 var turtleImage = new Image();
 
 var checkPictureModes = { ALPHA: 0, EXACT: 1 };
@@ -160,7 +162,7 @@ function injectBlockly() {
 
   workspace = Blockly.inject( blocklyDiv,
     { 
-    media: './media/', 
+    media: '{{ "/assets/media/" | relative_url }}', 
     trashcan: true, 
     maxBlocks: totalBlockLimit + 1,  // +1 на блок Программа
     maxInstances: someBlocksLimit,
@@ -188,9 +190,9 @@ function initRobot() {
   LevelSolutionRatingKey = fileName + '_rating_' + Level;
   AnimationDelayKey = fileName + '_animationDelay';
 
-  (new Image()).src = './media/gold-kubok.jpg';
-  (new Image()).src = './media/silver-kubok.jpg';
-  (new Image()).src = './media/big-star.gif';
+  (new Image()).src = '{{ "/assets/media/gold-kubok.jpg" | relative_url }}';
+  (new Image()).src = '{{ "/assets/media/silver-kubok.jpg" | relative_url }}';
+  (new Image()).src = '{{ "/assets/media/big-star.gif" | relative_url }}';
 
   injectBlockly();
   setCustomColors();
@@ -776,8 +778,8 @@ function showRating() {
     var star = document.getElementById('star'+i);
     if( star ) 
       if( i <= LevelSolutionRating ) 
-      	   star.src = "./media/star.gif";
-      else star.src = "./media/grey-star.gif";    
+      	   star.src = "{{ "/assets/media/star.gif" | relative_url }}";
+      else star.src = "{{ "/assets/media/grey-star.gif" | relative_url }}";    
     }
 }
 
@@ -984,16 +986,16 @@ function checkSolution() {
   	var greetings = "Поздравляем!";
   	var message = "Задача полностью решена! ";
     if( LevelSolutionRating == 5 ) 
-    	message = '<table><tr><td><img src="./media/gold-kubok.jpg"></td><td style="padding-left:10px;">' + 
+    	message = '<table><tr><td><img src="{{ "/assets/media/gold-kubok.jpg" | relative_url }}"></td><td style="padding-left:10px;">' + 
                   message + 
                   '<br>У тебя отличное решение, оно оценивается в пять' +
-                  '<img src="./media/star.gif" class="star">! Твоя награда&nbsp;&ndash; ' +
+                  '<img src="{{ "/assets/media/star.gif" | relative_url }}" class="star">! Твоя награда&nbsp;&ndash; ' +
                   'золотой кубок!<br>';
     else if( LevelSolutionRating == 4 ) 
-    	message = '<table><tr><td><img src="./media/silver-kubok.jpg"></td><td style="padding-left:10px;">' + 
+    	message = '<table><tr><td><img src="{{ "/assets/media/silver-kubok.jpg" | relative_url }}"></td><td style="padding-left:10px;">' + 
                   message + 
                   '<br>У тебя хорошее решение, но оно оценивается только в четыре' +
-                  '<img src="./media/star.gif" class="star">. Есть решение, ' +
+                  '<img src="{{ "/assets/media/star.gif" | relative_url }}" class="star">. Есть решение, ' +
                   'в котором используется меньше блоков. Твоя награда&nbsp;&ndash; ' +
                   'серебряный кубок!<br>';
     else
@@ -1294,33 +1296,33 @@ function robotHTML( header ) { //, widthProgram, heightProgram ) {
   return '<style>table#header td {margin:0; padding:0;}</style>' +
 '<table id="header" width="100%" style="margin:0;"><tr><td><h1><span id="title" style="margin-right:10px;">' + header + '</span>' +
 '<span id="levelMenu"></span>' +
-'<span id="starDiv"><img id="bigStar" src="./media/big-star.gif" align="top" width="35" height="34">' +
+'<span id="starDiv"><img id="bigStar" src="{{ "/assets/media/big-star.gif" | relative_url }}" align="top" width="35" height="34">' +
 '<span id="totalStars">12</span></span></h1></td><td align="right">' +
 '<a href="http://kpolyakov.spb.ru/school/robots/blockly.htm">' +
-'<img src="./media/link.gif" class="link"/></a> ' +
+'<img src="{{ "/assets/media/link.gif" | relative_url }}" class="link"/></a> ' +
 '<a href="http://kpolyakov.spb.ru/school/blockly/trt-blockly.htm">kpolyakov.spb.ru</a>' +
 '</td></tr></table>' +
 '<table width="100%"><tr><td><table width="400"><tr><td>' +
 '<span id="prevVar">' +
-'<img id="prevImg" src="./media/prev-icon-gray.png" title="Перейти к предыдущему варианту поля" ' +
+'<img id="prevImg" src="{{ "/assets/media/prev-icon-gray.png" | relative_url }}" title="Перейти к предыдущему варианту поля" ' +
 '     onclick="prevFieldVariant();"></span>' +
 '</td><td>' +
 '<span id="multimap" style="left:-32px;">Вариант <span id="mapcount"></span></span>' +
 '<span id="rating">Рейтинг твоего решения:' +
-'<img src="./media/star.gif" class="star" id="star1"><img src="./media/star.gif" class="star" id="star2">' +
-'<img src="./media/star.gif" class="star" id="star3"><img src="./media/star.gif" class="star" id="star4">' +
-'<img src="./media/star.gif" class="star" id="star5">' +
+'<img src="{{ "/assets/media/star.gif" | relative_url }}" class="star" id="star1"><img src="{{ "/assets/media/star.gif" | relative_url }}" class="star" id="star2">' +
+'<img src="{{ "/assets/media/star.gif" | relative_url }}" class="star" id="star3"><img src="{{ "/assets/media/star.gif" | relative_url }}" class="star" id="star4">' +
+'<img src="{{ "/assets/media/star.gif" | relative_url }}" class="star" id="star5">' +
 '</span></td><td align="right">' +
 '<span id="nextVar">' +
-'<img id="nextImg" src="./media/next-icon.png" title="Перейти к следующему варианту поля" ' +
+'<img id="nextImg" src="{{ "/assets/media/next-icon.png" | relative_url }}" title="Перейти к следующему варианту поля" ' +
 '     onclick="nextFieldVariant();"></span>' +
 '</td></tr></table></td><td>' +
 '  <div id="capacityBubble">' +
 '   <label for="file-load" style="cursor: pointer;position:relative;top:6px;margin:0 5px 0 20px;">' +
-'   <img id="upload" src="./media/open.gif" title="Открыть сохраненную программу">' +
+'   <img id="upload" src="{{ "/assets/media/open.gif" | relative_url }}" title="Открыть сохраненную программу">' +
 '   <input type="file" id="file-load" style="display:none;" onclick="this.value=null;" ' +
 '          onchange="loadProgramFromDisk();"></label>' +
-'   <img id="save" src="./media/save.gif" title="Сохранить программу в формате XML"' +
+'   <img id="save" src="{{ "/assets/media/save.gif" | relative_url }}" title="Сохранить программу в формате XML"' +
 '        style="cursor: pointer;position:relative;top:6px;margin-right:5px;" onclick="saveProgramToDisk();" />' +
 '    <span id="blockCount">Ты можешь добавить в программу <span id="capacity">0 блоков</span></span>.' +
 '  </div>' +
@@ -1338,11 +1340,11 @@ function robotHTML( header ) { //, widthProgram, heightProgram ) {
 '     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="150" height="50">' +
 '    <!-- Slow icon. -->' +
 '    <clipPath id="slowClipPath"><rect width="26" height="12" x="5" y="14"></rect></clipPath>' +
-'    <image xlink:href="media/icons.png" height="63" width="105" x="-21" y="-21"' + 
+'    <image xlink:href="{{ "/assets/media/icons.png" | relative_url }}" height="63" width="105" x="-21" y="-21"' + 
 '         clip-path="url(#slowClipPath)"></image>' +
 '    <!-- Fast icon. -->' +
 '    <clipPath id="fastClipPath"><rect width="26" height="16" x="120" y="10"></rect></clipPath>' +
-'    <image xlink:href="media/icons.png" height="63" width="105" x="120" y="-21" ' +
+'    <image xlink:href="{{ "/assets/media/icons.png" | relative_url }}" height="63" width="105" x="120" y="-21" ' +
 '         clip-path="url(#fastClipPath)"></image>' +
 '    <line id="sliderTrack" x1="10" y1="35" x2="140" y2="35"></line>' +
 '    <rect id="trackTarget" style="opacity: 0" x="-10" y="15" width="170" height="40" rx="20" ry="20"></rect>' +
@@ -1352,14 +1354,14 @@ function robotHTML( header ) { //, widthProgram, heightProgram ) {
 '  </td><td> ' +
 '  <div style="text-align:right;">' +
 '    <button id="stepButton" title="Выполни программу по шагам" onclick="runCode(true);">' +
-'      <img src="media/1x1.gif" class="step icon21">&nbsp;Шаг' +
+'      <img src="{{ "/assets/media/1x1.gif" | relative_url }}" class="step icon21">&nbsp;Шаг' +
 '    </button>' +
 '    <button id="runButton" title="Запусти написанную тобой программу" onclick="runCode();">' +
-'      <img src="media/1x1.gif" class="run icon21">&nbsp;Старт' +
+'      <img src="{{ "/assets/media/1x1.gif" | relative_url }}" class="run icon21">&nbsp;Старт' +
 '    </button>' +
 '    <button id="resetButton" title="Прервать программу и сбросить в начальное состояние" ' +
 '                             onclick="reset();" style="display:none;">' +
-'      <img src="media/1x1.gif" class="stop icon21">&nbsp;Сброс</button>' +
+'      <img src="{{ "/assets/media/1x1.gif" | relative_url }}" class="stop icon21">&nbsp;Сброс</button>' +
 '  </div>' +
 '  </td></tr></table>' +
 '  <div id="counters"></div>' +
