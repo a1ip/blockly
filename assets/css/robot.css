@@ -54,7 +54,7 @@ button>img {
 .icon21 {
   height: 21px;
   width: 21px;
-  background-image: url(media/icons.png);
+  background-image: url({{ "/assets/media/icons.png" | relative_url }});
 }
 #levelMenu {
   display: inline-block;
