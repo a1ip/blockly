@@ -22,7 +22,7 @@ defaults:
     scope:
       path: ""
     values:
-      image: /assets/img/card.png
+      image: /assets/media/card.png
 
 
 # Minima date format
