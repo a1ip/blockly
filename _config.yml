@@ -1,0 +1,93 @@
+baseurl: / #/notes # the subpath of your site, e.g. /blog
+url: https://blockly.rigovanov.ru # the base hostname & protocol for your site
+domain: blockly.rigovanov.ru
+permalink: /:categories/:title
+lang: ru
+# email: phil@rigovanov.ru
+# author: Филипп Юрьевич Ригованов
+
+title: Программирование на Blockly
+# longtitle: Программирование на Blockly
+author:
+  name: Филипп Юрьевич Ригованов # a1ip
+  email: phil@rigovanov.ru
+# description: > # this means to ignore newlines until "show_excerpts:"
+#   Мои заметки
+#   при чтении
+#   Библии.
+show_excerpts: false # set to true to show excerpts on the homepage
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      image: /assets/img/card.png
+
+
+# Minima date format
+# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
+# minima:
+#   skin: dark # classic # solarized # solarized-dark # dark
+#   date_format: "%d/%m/%y" #"%D" #"%b %-d, %Y"
+
+#   # generate social links in footer
+#   social_links:
+#     twitter: phil_rigovanov
+#     github: a1ip
+#     # devto: jekyll
+#     # dribbble: jekyll
+#     facebook: rigovanov
+#     # flickr:   jekyll
+#     instagram: a1ip
+#     linkedin: rigovanov
+#     pinterest: philrigovanov
+#     # youtube: jekyll
+#     # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
+#     youtube_channel_name: philipperigovanov
+#     telegram: rigovanov
+    # googleplus: +jekyll
+    # microdotblog: jekyll
+    # keybase: jekyll
+
+    # Mastodon instances
+    # mastodon:
+    # - username: jekyll
+    #   instance: example.com
+    # - username: jekyll2
+    #   instance: example.com
+
+    # GitLab instances
+    # gitlab:
+    # - username: jekyll
+    #   instance: example.com
+    # - username: jekyll2
+    #   instance: example.com
+
+# If you want to link only specific pages in your header, uncomment
+# this and add the path to the pages in order as they should show up
+# header_pages:
+# - index.md
+#   - by-book.html
+# - about.md
+
+# Build settings
+# theme: minima
+# remote_theme: jekyll/minima
+
+plugins:
+ - jekyll-feed
+ - jekyll-seo-tag
+ - jekyll-sitemap
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [local]
